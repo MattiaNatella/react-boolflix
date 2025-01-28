@@ -26,14 +26,29 @@ const GlobalProvider = ({ children }) => {
         console.log(userTitle)
     }
 
+    function selectFlag(language) {
+        if (language == 'en') {
+            return 'https://flagsapi.com/GB/shiny/64.png'
+        }
+        if (language == 'ja') {
+            return 'https://flagsapi.com/JP/shiny/64.png'
+        }
+        if (language == 'zh') {
+            return 'https://flagsapi.com/CN/shiny/64.png'
+        }
+        if (language == 'da') {
+            return 'https://flagsapi.com/DK/shiny/64.png'
+        }
+    }
+
     const value = {
         fetchData,
         handleInput,
         userTitle,
         setUserTitle,
         movieList,
-        setMovieList
-
+        setMovieList,
+        selectFlag
     }
 
     return (
