@@ -6,24 +6,30 @@ const GlobalContext = createContext();
 const GlobalProvider = ({ children }) => {
 
     const apiKey = '7d5669291d98760116a5799324f6fb0b'
-    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
+    const apiUrlMovies = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=`
+    const apiUrlTvSeries = `https://api.themoviedb.org/3/search/tv?api_key=${apiKey}&query=`
 
     const [movieList, setMovieList] = useState([])
+    const [tvSeriesList, setTvSeriesList] = useState([])
     const [userTitle, setUserTitle] = useState('')
 
 
     const fetchData = () => {
-        console.log(apiUrl + userTitle)
-        axios.get(apiUrl + userTitle)
+        console.log(apiUrlMovies + userTitle)
+        axios.get(apiUrlMovies + userTitle)
             .then(res => {
                 setMovieList(res.data.results)
+            })
+        axios.get(apiUrlTvSeries + userTitle)
+            .then(res => {
+                console.log(res.data.results)
+                setTvSeriesList(res.data.results)
             })
     }
 
     const handleInput = (e) => {
 
         setUserTitle(e.target.value)
-        console.log(userTitle)
     }
 
     function selectFlag(language) {
@@ -39,6 +45,9 @@ const GlobalProvider = ({ children }) => {
         if (language == 'da') {
             return 'https://flagsapi.com/DK/shiny/64.png'
         }
+        if (language == 'ko') {
+            return 'https://flagsapi.com/KR/shiny/64.png'
+        }
     }
 
     const value = {
@@ -48,6 +57,8 @@ const GlobalProvider = ({ children }) => {
         setUserTitle,
         movieList,
         setMovieList,
+        tvSeriesList,
+        setTvSeriesList,
         selectFlag
     }
 

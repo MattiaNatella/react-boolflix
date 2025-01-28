@@ -7,7 +7,7 @@ const DefaultLayout = () => {
             <header>
                 <MainNav></MainNav>
             </header>
-            <main className="my-5">
+            <main>
                 <Outlet />
             </main>
         </>

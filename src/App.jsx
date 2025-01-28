@@ -3,7 +3,7 @@ import { GlobalProvider } from "./context/GlobalContext"
 
 import DefaultLayout from "./layouts/DefaultLayout"
 import HomePage from "./componets/HomePage"
-import MovieCards from "./componets/MovieCards"
+
 
 const App = () => {
   return (
