@@ -48,6 +48,12 @@ const GlobalProvider = ({ children }) => {
         if (language == 'ko') {
             return 'https://flagsapi.com/KR/shiny/64.png'
         }
+        if (language == 'fa') {
+            return 'https://flagsapi.com/IR/shiny/64.png'
+        }
+        if (language == 'hi') {
+            return 'https://flagsapi.com/IN/shiny/64.png'
+        }
     }
 
     const value = {
