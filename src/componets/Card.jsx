@@ -1,11 +1,18 @@
-
+import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
-
 
 const Card = ({ movie, tv }) => {
 
     const { selectFlag } = useGlobalContext()
 
+    function getLanguageFlag() {
+        // (selectFlag(movie?.original_language) || `https://flagsapi.com/${movie?.original_language.toUpperCase()}/shiny/64.png`) || (selectFlag(tv?.original_language) || `https://flagsapi.com/${tv?.original_language.toUpperCase()}/shiny/64.png`)
+
+        return movie ?
+            (selectFlag(movie?.original_language) || `https://flagsapi.com/${movie?.original_language.toUpperCase()}/shiny/64.png`) :
+            (selectFlag(tv?.original_language) || `https://flagsapi.com/${tv?.original_language.toUpperCase()}/shiny/64.png`)
+
+    }
     return (
         <>
             <div className="card col-4">
@@ -15,7 +22,7 @@ const Card = ({ movie, tv }) => {
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">{movie?.original_title || tv?.original_name}</li>
                     <li className="list-group-item">
-                        <img src={(selectFlag(movie?.original_language) || `https://flagsapi.com/${movie?.original_language.toUpperCase()}/shiny/64.png`) || (selectFlag(tv?.original_language) || `https://flagsapi.com/${tv?.original_language.toUpperCase()}/shiny/64.png`)} alt={movie?.original_language || tv?.original_language} /></li>
+                        <img src={getLanguageFlag()} alt={movie?.original_language || tv?.original_language} /></li>
                     <li className="list-group-item">{movie?.vote_average || tv?.vote_average}</li>
                 </ul>
             </div>
