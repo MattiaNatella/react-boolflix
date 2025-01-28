@@ -1,8 +1,11 @@
-
+import { GlobalProvider } from "./context/GlobalContext"
 
 const App = () => {
   return (
-    <div>App</div>
+    <GlobalProvider>
+      <div>App</div>
+    </GlobalProvider>
+
   )
 }
 
