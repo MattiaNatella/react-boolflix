@@ -19,7 +19,7 @@ const HomePage = () => {
             <div className="container py-3">
 
                 {/* MOVIES*/}
-                {movieList.length > 0 ? <h2>Movies</h2> : <h2>HomePage</h2>}
+                {movieList.length > 0 ? <h2>Movies - fai swipe per scorrere</h2> : <h2>HomePage</h2>}
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={3}

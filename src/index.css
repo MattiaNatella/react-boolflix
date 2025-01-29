@@ -23,6 +23,8 @@ i.fa-star {
 .card {
     width: 440px;
     height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
