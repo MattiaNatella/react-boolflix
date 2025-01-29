@@ -1,12 +1,13 @@
-import { useEffect } from "react"
+
 import { useGlobalContext } from "../context/GlobalContext"
+import { useState } from "react"
 
 const Card = ({ movie, tv }) => {
 
     const { selectFlag } = useGlobalContext()
+    const [hidden, setHidden] = useState(true)
 
     function getLanguageFlag() {
-        // (selectFlag(movie?.original_language) || `https://flagsapi.com/${movie?.original_language.toUpperCase()}/shiny/64.png`) || (selectFlag(tv?.original_language) || `https://flagsapi.com/${tv?.original_language.toUpperCase()}/shiny/64.png`)
 
         return movie ?
             (selectFlag(movie?.original_language) || `https://flagsapi.com/${movie?.original_language.toUpperCase()}/shiny/64.png`) :
@@ -39,17 +40,26 @@ const Card = ({ movie, tv }) => {
 
     return (
         <>
-            <div className="card col-4">
-                <div className="card-header">
-                    {movie?.title || tv?.original_name}
-                </div>
-                <img src={getPoster()} alt="poster image" />
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">{movie?.original_title || tv?.original_name}</li>
-                    <li className="list-group-item">
-                        <img src={getLanguageFlag()} alt={movie?.original_language || tv?.original_language} /></li>
-                    <li className="list-group-item">{getStars(movie?.vote_average || tv?.vote_average)}</li>
-                </ul>
+            <div
+                className="card col-4 p-0"
+                onMouseEnter={() => setHidden(false)}
+                onMouseLeave={() => setHidden(true)}>
+
+                {hidden
+                    ? (<img id="poster" src={getPoster()} alt="poster image" />)
+                    : (
+                        <>
+                            <div className="card-header">
+                                {movie?.title || tv?.original_name}
+                            </div>
+                            <ul className="list-group list-group-flush">
+                                <li className="list-group-item">{movie?.original_title || tv?.original_name}</li>
+                                <li className="list-group-item">
+                                    <img src={getLanguageFlag()} alt={movie?.original_language || tv?.original_language} /></li>
+                                <li className="list-group-item">{getStars(movie?.vote_average || tv?.vote_average)}</li>
+                            </ul>
+                        </>
+                    )}
             </div>
         </>
     )

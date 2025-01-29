@@ -1,3 +1,9 @@
+* {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
     background-color: #25142D;
 }
@@ -7,13 +13,27 @@ main {
 }
 
 h2,
-i {
+i.fa-star {
     background: -webkit-linear-gradient(#7D4395, #D72535);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+
 .card {
     border: 2px solid #D72535;
-    ;
+    width: 440px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: -webkit-linear-gradient(#7D4395, #D72535);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+img#poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

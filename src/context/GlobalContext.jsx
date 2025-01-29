@@ -14,6 +14,7 @@ const GlobalProvider = ({ children }) => {
     const [userTitle, setUserTitle] = useState('')
 
 
+
     const fetchData = () => {
         console.log(apiUrlMovies + userTitle)
         axios.get(apiUrlMovies + userTitle)
