@@ -1,7 +1,7 @@
 import Card from "./Card"
 import { useGlobalContext } from "../context/GlobalContext"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow } from 'swiper/modules';
+import { EffectCoverflow, Navigation } from 'swiper/modules';
 import 'swiper/css';
 
 const HomePage = () => {
@@ -30,8 +30,6 @@ const HomePage = () => {
                     <div className="row d-flex my-3">
                         {movieList.length > 0 && (movieList.map((movie, index) =>
                             <SwiperSlide>
-
-
                                 <Card key={index} movie={movie} />
                             </SwiperSlide>
                         ))

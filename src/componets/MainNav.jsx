@@ -16,21 +16,21 @@ const MainNav = () => {
     return (
         <>
             <nav className="navbar">
-                <div className="container-fluid">
+                <div className="container-fluid justify-content-between">
                     <a className="navbar-brand"><img src="../../public/img/image.png" alt="" /></a>
+                    <div className="search d-flex">
+                        <input className="form-control w-75 me-2" type="search" placeholder="Cerca per titolo" aria-label="Search"
+                            value={userTitle}
+                            onChange={handleInput}
+                            onKeyUp={handleSubmit} />
 
-                    <input className="form-control w-30 me-2" type="search" placeholder="Cerca per titolo" aria-label="Search"
-                        value={userTitle}
-                        onChange={handleInput}
-                        onKeyUp={handleSubmit} />
-
-                    <button
-                        className="btn">
-                        <i
-                            style={{ color: "#df1677" }}
-                            className="fa-brands fa-searchengin fa-2xl"></i>
-                    </button>
-
+                        <button
+                            className="btn">
+                            <i
+                                style={{ color: "#df1677" }}
+                                className="fa-brands fa-searchengin fa-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </nav >
         </>
