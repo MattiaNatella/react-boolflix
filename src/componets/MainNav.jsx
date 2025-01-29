@@ -13,9 +13,9 @@ const MainNav = () => {
 
     return (
         <>
-            <nav className="navbar bg-body-tertiary">
+            <nav className="navbar">
                 <div className="container-fluid">
-                    <a className="navbar-brand">BOOLFLIX</a>
+                    <a className="navbar-brand"><img src="../../public/img/image.png" alt="" srcset="" /></a>
                     <form className="d-flex" role="search"
                         onSubmit={handleSubmit}>
                         <input className="form-control me-2" type="search" placeholder="Cerca per titolo" aria-label="Search"
